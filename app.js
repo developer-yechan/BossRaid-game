@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const db = require("./database");
 const dotenv = require("dotenv");
-// const routes = require("./routes");
+const routes = require("./routes");
 // const { swaggerUi, specs } = require("./swagger/swagger");
 // const errorCodes = require("./codes/errorCodes");
 const errorHandler = require("./errorHandler/errorHandler");
@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(morgan("dev"));
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
-// app.use(routes);
+app.use(routes);
 
 app.get("/", (req, res) => {
   return res.status(200).json({ message: "hello world" });
