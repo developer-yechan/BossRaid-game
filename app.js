@@ -55,6 +55,10 @@ app.use(routes);
 //   }
 // });
 
+app.get("/", (req, res) => {
+  return res.status(200).json({ message: "hello world" });
+});
+
 app.use((req, res) => {
   res.status(404).json({ message: "page is not found" });
 });
