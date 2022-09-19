@@ -26,8 +26,8 @@ module.exports = class User extends Sequelize.Model {
 
   static associate(db) {
     db.User.hasMany(db.RaidLog);
-    db.User.hasMany(db.BossRaid, {
-      foreignKey: "enteredUserId",
-    });
+    // db.User.hasMany(db.BossRaid, {
+    //   foreignKey: "enteredUserId",
+    // });
   }
 };

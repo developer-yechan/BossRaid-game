@@ -34,6 +34,6 @@ module.exports = class RaidLog extends Sequelize.Model {
 
   static associate(db) {
     db.RaidLog.belongsTo(db.User);
-    db.RaidLog.belongsTo(db.BossRaid);
+    // db.RaidLog.belongsTo(db.BossRaid);
   }
 };
