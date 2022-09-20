@@ -16,7 +16,7 @@ module.exports = class RaidLog extends Sequelize.Model {
         },
         score: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
         },
       },
       {
