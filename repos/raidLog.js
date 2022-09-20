@@ -1,3 +1,4 @@
+const { sequelize } = require("../database/models/raidLog");
 const RaidLog = require("../database/models/raidLog");
 
 const createRaidHistory = async (dto) => {
@@ -39,9 +40,38 @@ const endRaidHistory = async (dto) => {
   );
 };
 
+const getRaidRankings = async () => {
+  const raidRanking = await RaidLog.findAll({
+    attributes: [
+      [sequelize.fn("sum", sequelize.col("score")), "totalScore"],
+      ["UserId", "userId"],
+    ],
+    group: ["UserId"],
+    order: sequelize.literal("totalScore DESC"),
+  });
+  return raidRanking;
+};
+
+const getMyRaidRankings = async (userId) => {
+  const raidRanking = await RaidLog.findOne({
+    attributes: [
+      [sequelize.fn("sum", sequelize.col("score")), "totalScore"],
+      ["UserId", "userId"],
+    ],
+    group: ["UserId"],
+    order: sequelize.literal("totalScore DESC"),
+    where: {
+      UserId: userId,
+    },
+  });
+  return raidRanking;
+};
+
 module.exports = {
   createRaidHistory,
   getRaidHistory,
   deleteRaidHistory,
   endRaidHistory,
+  getRaidRankings,
+  getMyRaidRankings,
 };

@@ -61,4 +61,17 @@ const endRaidHistory = async (req, res, next) => {
   }
 };
 
-module.exports = { createRaidHistory, endRaidHistory };
+const getRaidRankings = async (req, res, next) => {
+  const redis = req.app.get("redis");
+  if (!redis) {
+    throw new Error("레디스 연결을 확인해 주세요");
+  }
+
+  const { userId } = req.body;
+  const rankingInfo = await raidService.getRankingInfo(userId);
+  //랭킹데이터 레디스 캐싱
+  await redis.json.set("RankingInfo", "$", rankingInfo);
+  return res.status(200).json(rankingInfo);
+};
+
+module.exports = { createRaidHistory, endRaidHistory, getRaidRankings };

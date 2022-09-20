@@ -13,4 +13,23 @@ const endRaidHistory = async (userId, raidRecordId, score) => {
   await raidRepo.endRaidHistory(endRaidDto(userId, raidRecordId, score));
 };
 
-module.exports = { createRaidHistory, endRaidHistory };
+const getRankingInfo = async (userId) => {
+  const raidRankings = await raidRepo.getRaidRankings();
+
+  raidRankings.forEach((rankInfo, idx) => {
+    rankInfo.dataValues.ranking = idx;
+  });
+
+  const myRankingInfo = raidRankings.filter((rankInfo) => {
+    return rankInfo.dataValues.userId === userId;
+  });
+
+  const rankingInfo = {
+    topRankerInfoList: raidRankings,
+    myRankingInfo: myRankingInfo[0],
+  };
+
+  return rankingInfo;
+};
+
+module.exports = { createRaidHistory, endRaidHistory, getRankingInfo };
