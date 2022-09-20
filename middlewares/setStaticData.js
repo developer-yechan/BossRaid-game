@@ -1,4 +1,4 @@
-const bossStateDao = require("../dao/bossStateDao");
+const bossStateDto = require("../dto/bossStateDto");
 const axios = require("axios");
 
 const setStaticData = async (req, res, next) => {
@@ -14,7 +14,7 @@ const setStaticData = async (req, res, next) => {
   await redis.json.set("bossRaidData", "$", bossRaidData);
 
   if (!(await redis.json.get("bossRaidState"))) {
-    await redis.json.set("bossRaidState", "$", bossStateDao(true, null));
+    await redis.json.set("bossRaidState", "$", bossStateDto(true, null));
   }
   next();
 };

@@ -1,7 +1,8 @@
 const express = require("express");
-const { createRaidHistory } = require("../controllers/raidLog");
+const raidControllers = require("../controllers/raidLog");
 const router = express();
 
-router.post("/enter", createRaidHistory);
+router.post("/enter", raidControllers.createRaidHistory);
+router.patch("/end", raidControllers.endRaidHistory);
 
 module.exports = router;
