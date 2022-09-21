@@ -1,5 +1,7 @@
 const { sequelize } = require("../database/models/raidLog");
 const RaidLog = require("../database/models/raidLog");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 const createRaidHistory = async (dto) => {
   let raidHistory = await RaidLog.create(dto);
@@ -17,6 +19,18 @@ const getRaidHistory = async (userId, raidRecordId) => {
     },
   });
   return raidHistory;
+};
+
+const getRaidHistorys = async () => {
+  const raidHistorys = await RaidLog.findAll({
+    where: {
+      score: {
+        [Op.is]: null,
+      },
+    },
+    order: sequelize.literal("createdAt DESC"),
+  });
+  return raidHistorys;
 };
 
 const deleteRaidHistory = async (userId, raidRecordId) => {
@@ -81,6 +95,7 @@ const getRaidHistoryByUser = async (userId) => {
 module.exports = {
   createRaidHistory,
   getRaidHistory,
+  getRaidHistorys,
   deleteRaidHistory,
   endRaidHistory,
   getRaidRankings,
