@@ -5,5 +5,6 @@ const router = express();
 router.post("/enter", raidControllers.createRaidHistory);
 router.patch("/end", raidControllers.endRaidHistory);
 router.get("/topRankerList", raidControllers.getRaidRankings);
+router.get("/", raidControllers.getRaidStatus);
 
 module.exports = router;
