@@ -24,7 +24,10 @@ const createRaidHistory = async (req, res, next) => {
     const redis = req.app.get("redis");
 
     if (!redis) {
-      throw new Error("레디스 연결을 확인해 주세요");
+      const e = new Error("레디스 연결을 확인해 주세요");
+      e.status = 500;
+      console.error(e);
+      return res.status(500).json({ error: "Server Error" });
     }
     const bossRaidState = await redis.json.get("bossRaidState");
 
@@ -33,7 +36,8 @@ const createRaidHistory = async (req, res, next) => {
         "보스레이드 상태가 레디스에 캐싱 되어 있지 않습니다."
       );
       e.status = 500;
-      throw e;
+      console.error(e);
+      return res.status(500).json({ error: "Server Error" });
     }
 
     const canEnter = bossRaidState.canEnter;
