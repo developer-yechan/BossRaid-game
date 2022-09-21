@@ -56,7 +56,7 @@ const endRaidHistory = async (req, res, next) => {
     const levels = bossRaidData.bossRaids[0].levels;
     let score;
     for (let i = 0; i < levels.length; i++) {
-      if (levels[i].level === raidHistory.level) {
+      if (levels[i].level === req.raidHistory.level) {
         score = levels[i].score;
         break;
       }
@@ -68,7 +68,7 @@ const endRaidHistory = async (req, res, next) => {
     });
     return res
       .status(200)
-      .json({ message: `보스레이드 Lv.${raidHistory.level} 클리어` });
+      .json({ message: `보스레이드 Lv.${req.raidHistory.level} 클리어` });
   } catch (err) {
     next(err);
   }

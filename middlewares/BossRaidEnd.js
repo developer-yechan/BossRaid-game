@@ -25,6 +25,7 @@ const BossRaidEnd = async (req, res, next) => {
       });
       return res.status(400).json({ error: "제한 시간을 초과했습니다." });
     }
+    req.raidHistory = raidHistory;
     next();
   } catch (err) {
     next(err);

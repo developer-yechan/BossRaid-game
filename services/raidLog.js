@@ -43,9 +43,20 @@ const endRaidHistory = async (userId, raidRecordId, score) => {
 const getRankingInfo = async (userId) => {
   const raidRankings = await raidRepo.getRaidRankings();
 
-  raidRankings.forEach((rankInfo, idx) => {
-    rankInfo.dataValues.ranking = idx;
-  });
+  let currentRanking = 0;
+  for (let i = 0; i < raidRankings.length; i++) {
+    if (i === 0) {
+      raidRankings[i].dataValues.ranking = currentRanking;
+      continue;
+    }
+    const currentScore = raidRankings[i].dataValues.totalScore;
+    if (currentScore === raidRankings[i - 1].dataValues.totalScore) {
+      raidRankings[i].dataValues.ranking = currentRanking;
+      continue;
+    }
+    raidRankings[i].dataValues.ranking = currentRanking + 1;
+    currentRanking += 1;
+  }
 
   const myRankingInfo = raidRankings.filter((rankInfo) => {
     return rankInfo.dataValues.userId === userId;
