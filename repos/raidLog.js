@@ -52,19 +52,30 @@ const getRaidRankings = async () => {
   return raidRanking;
 };
 
-const getMyRaidRankings = async (userId) => {
+const getMyRaidRanking = async (userId) => {
   const raidRanking = await RaidLog.findOne({
-    attributes: [
-      [sequelize.fn("sum", sequelize.col("score")), "totalScore"],
-      ["UserId", "userId"],
-    ],
+    attributes: [[sequelize.fn("sum", sequelize.col("score")), "totalScore"]],
     group: ["UserId"],
-    order: sequelize.literal("totalScore DESC"),
     where: {
       UserId: userId,
     },
   });
   return raidRanking;
+};
+
+const getRaidHistoryByUser = async (userId) => {
+  const raidHistory = await RaidLog.findAll({
+    attributes: [
+      ["id", "raidRecordId"],
+      "score",
+      ["createdAt", "enterTime"],
+      ["updatedAt", "endTime"],
+    ],
+    where: {
+      UserId: userId,
+    },
+  });
+  return raidHistory;
 };
 
 module.exports = {
@@ -73,5 +84,6 @@ module.exports = {
   deleteRaidHistory,
   endRaidHistory,
   getRaidRankings,
-  getMyRaidRankings,
+  getMyRaidRanking,
+  getRaidHistoryByUser,
 };
