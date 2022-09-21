@@ -1,6 +1,6 @@
-module.exports = (canEnter, enterdUserId) => {
+module.exports = (canEnter, enteredUserId) => {
   return {
     canEnter,
-    enterdUserId,
+    enteredUserId,
   };
 };
