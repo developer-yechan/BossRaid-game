@@ -1,4 +1,4 @@
-const bossStateDto = require("../dto/bossStateDto");
+const bossStateDao = require("../dao/bossStateDao");
 const axios = require("axios");
 
 const setStaticData = async (req, res, next) => {

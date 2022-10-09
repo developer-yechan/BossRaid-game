@@ -1,11 +1,11 @@
 const raidRepo = require("../repos/raidLog");
-const createRaidDto = require("../dto/createRaidHistoryDto");
-const endRaidDto = require("../dto/endRaidHistoryDto");
+const createRaidDao = require("../dao/createRaidHistoryDao");
+const endRaidDao = require("../dao/endRaidHistoryDao");
 const moment = require("moment");
 
 const createRaidHistory = async (userId, level) => {
   const raidHistory = await raidRepo.createRaidHistory(
-    createRaidDto(userId, level)
+    createRaidDao(userId, level)
   );
   return raidHistory;
 };
@@ -37,7 +37,7 @@ const getRaidStatus = async () => {
 };
 
 const endRaidHistory = async (userId, raidRecordId, score) => {
-  await raidRepo.endRaidHistory(endRaidDto(userId, raidRecordId, score));
+  await raidRepo.endRaidHistory(endRaidDao(userId, raidRecordId, score));
 };
 
 const getRankingInfo = async (userId) => {
@@ -63,8 +63,8 @@ const getRankingInfo = async (userId) => {
   });
 
   const rankingInfo = {
-    topRankerInfoList: raidRankings,
-    myRankingInfo: myRankingInfo[0],
+    ranking: raidRankings,
+    userRanking: myRankingInfo[0],
   };
 
   return rankingInfo;

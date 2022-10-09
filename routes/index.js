@@ -3,7 +3,7 @@ const router = express();
 const userRouter = require("../routes/user");
 const raidRouter = require("../routes/raidLog");
 
-router.use("/user", userRouter);
-router.use("/bossRaid", raidRouter);
+router.use("/api/user", userRouter);
+router.use("/api/bossraids", raidRouter);
 
 module.exports = router;
