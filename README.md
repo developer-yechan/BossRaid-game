@@ -46,7 +46,8 @@
     
 # 📑 API 문서
 
-- 추가 예정
+
+[bossRaid_swagger.pdf](https://github.com/developer-yechan/BossRaid-game/files/9741747/bossRaid_swagger.pdf)
 
 
 # 📜 테스트 케이스
@@ -96,7 +97,7 @@
 ![image](https://user-images.githubusercontent.com/99064214/191505460-c4014797-4549-4f36-a1ee-2afdc722f751.png)
 
 # 🗂 폴더 구조
-![image](https://user-images.githubusercontent.com/99064214/191505608-6c2ad62f-3bd3-4cb7-894b-25c313b4c312.png)
+![image](https://user-images.githubusercontent.com/99064214/194761042-8d35bb4e-c224-4c91-8506-7eb96305cd22.png)
 
 
 # ⚙ 패키지
