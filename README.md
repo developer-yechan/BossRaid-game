@@ -72,21 +72,6 @@ npm start 후 http://localhost:10000/api-docs
 | 마지막 콤마 사용 | 한줄 최대 글자수: 80 |
 | var는 사용하지 않습니다. | 세미 콜론 사용을 허용합니다. |
 
-### ✔ 메서드명 규칙
-
-- 전체조회는 복수형으로 작성합니다.
-
-| 요청 내용  | service | repo |
-| --- |--- | --- |
-| 생성 | createPost | createPost |
-| 조회 | readPost | findPost |
-| 전체조회 | readPosts | findPosts |
-| 수정 | updatePost | updatePost |
-| 삭제 | deletePost | deletePost |
-
-### ✔ 주석
-
-- 메서드 및 코드 설명을 주석으로 간단하게 작성합니다.
 
 ### ✔ Git commit
 
@@ -162,10 +147,8 @@ npm start 후 http://localhost:10000/api-docs
 ```
 
 # ⚡ 기술 스택
-<img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-FCC624?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Sequelize-007396?style=for-the-badge&logo=Sequelize&logoColor=white">
-<img src="https://img.shields.io/badge/Swagger-61DAFB?style=for-the-badge&logo=Swagger&logoColor=white"> <img src="https://img.shields.io/badge/Mocha-F8DC75?style=for-the-badge&logo=Mocha&logoColor=white">
-redis
+## Node.js, Express, Mysql, Git, Github, Sequelize, Swagger, Redis
+
 
 # ✋ 트러블 슈팅
 
