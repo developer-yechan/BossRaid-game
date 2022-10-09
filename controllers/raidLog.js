@@ -82,8 +82,11 @@ const getRaidRankings = async (req, res, next) => {
     console.error(e);
     return res.status(500).json({ error: "Server Error" });
   }
-
-  const { userId } = req.body;
+  if (redis.json.get("RankingInfo")) {
+    const ranking = await redis.json.get("RankingInfo");
+    return res.status(200).json(ranking);
+  }
+  const { userId } = req.params;
   const rankingInfo = await raidService.getRankingInfo(userId);
   //랭킹데이터 레디스 캐싱
   await redis.json.set("RankingInfo", "$", rankingInfo);
