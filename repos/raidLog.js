@@ -3,8 +3,8 @@ const RaidLog = require("../database/models/raidLog");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
-const createRaidHistory = async (dto) => {
-  let raidHistory = await RaidLog.create(dto);
+const createRaidHistory = async (dao) => {
+  let raidHistory = await RaidLog.create(dao);
   raidHistory = {
     raidRecordId: raidHistory.id,
   };
@@ -42,13 +42,13 @@ const deleteRaidHistory = async (userId, raidRecordId) => {
   });
 };
 
-const endRaidHistory = async (dto) => {
+const endRaidHistory = async (dao) => {
   await RaidLog.update(
-    { score: dto.score },
+    { score: dao.score },
     {
       where: {
-        id: dto.raidRecordId,
-        UserId: dto.userId,
+        id: dao.raidRecordId,
+        UserId: dao.userId,
       },
     }
   );
