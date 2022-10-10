@@ -70,12 +70,11 @@ router.get("/", raidControllers.getRaidStatus);
  *                type: object
  *                example :
  *                  {
- *                    error: [
+ *                    error:
  *                        {
  *                           message: error.message,
  *                           field: error.name
  *                        }
- *                     ]
  *                  }
  *
  */
@@ -108,12 +107,11 @@ router.get("/", raidControllers.getRaidStatus);
  *                type: object
  *                example :
  *                  {
- *                    error: [
+ *                    error:
  *                        {
  *                           message: error.message,
  *                           field: error.name
  *                        }
- *                     ]
  *                  }
  *
  */
@@ -155,12 +153,11 @@ router.get("/", raidControllers.getRaidStatus);
  *                type: object
  *                example :
  *                  {
- *                    error: [
+ *                    error:
  *                        {
  *                           message: error.message,
  *                           field: error.name
  *                        }
- *                     ]
  *                  }
  *
  */
@@ -201,12 +198,11 @@ router.get("/", raidControllers.getRaidStatus);
  *                type: object
  *                example :
  *                  {
- *                    error: [
+ *                    error:
  *                        {
  *                           message: error.message,
  *                           field: error.name
  *                        }
- *                     ]
  *                  }
  *
  */
