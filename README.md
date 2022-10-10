@@ -48,7 +48,8 @@
 
 npm start 후 http://localhost:10000/api-docs 
 
-[bossRaid_swagger.pdf](https://github.com/developer-yechan/BossRaid-game/files/9741747/bossRaid_swagger.pdf)
+[bossRaid_swagger.pdf](https://github.com/developer-yechan/BossRaid-game/files/9744369/bossRaid_swagger.pdf)
+
 
 
 # 📜 테스트 케이스
