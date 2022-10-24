@@ -31,37 +31,40 @@ router.get("/", raidControllers.getRaidStatus);
  *              schema:
  *                  type : object
  *                  example:
- *                        {
- *                            "ranking": [
- *                                {
- *                                    "ranking": 1,
- *                                    "userId": "NIq7FTQQ7cf_6X3N1Dti8",
- *                                    "totalScore": 4100
- *                                },
- *                                {
- *                                    "ranking": 2,
- *                                    "userId": "S1f4CvnbpUr2-dLcifzcS",
- *                                    "totalScore": 600
- *                                },
- *                                {
- *                                    "ranking": 3,
- *                                    "userId": "UPEj_StZ6ABw7dfCPtDqk",
- *                                    "totalScore": 300
- *                                },
- *                                {
- *                                    "ranking": 3,
- *                                    "userId": "-NyZapMP_MDfJeVs-C_HJ",
- *                                    "totalScore": 300
- *                                },
- *                            ],
- *                            "userRanking": [
- *                                {
- *                                    "ranking": 1,
- *                                    "userId": "NIq7FTQQ7cf_6X3N1Dti8",
- *                                    "totalScore": 4100
- *                                }
- *                            ]
- *                        }
+ *                           {
+ *                               "ranking": [
+ *                                   {
+ *                                       "totalScore": "275",
+ *                                       "userId": "1309c824-e8c9-49b7-9fd6-6eb9be2c1c17",
+ *                                       "ranking": 0
+ *                                   },
+ *                                   {
+ *                                       "totalScore": "94",
+ *                                       "userId": "51d40b6f-2679-4aad-ad18-2a4388ed5462",
+ *                                       "ranking": 1
+ *                                   },
+ *                                   {
+ *                                       "totalScore": "94",
+ *                                       "userId": "823d9563-6f06-4a03-8a2a-76e0aa3949d0",
+ *                                        "ranking": 1
+ *                                   },
+ *                                   {
+ *                                       "totalScore": "85",
+ *                                       "userId": "1b89508c-35b1-4b7c-b413-93aa340ec4a4",
+ *                                       "ranking": 2
+ *                                    },
+ *                                   {
+ *                                       "totalScore": "47",
+ *                                       "userId": "1c05d2fc-aec1-4c42-ba46-0213b126f8d6",
+ *                                       "ranking": 3
+ *                                   }
+ *                               ],
+ *                               "userRanking": {
+ *                                   "totalScore": "94",
+ *                                   "userId": "823d9563-6f06-4a03-8a2a-76e0aa3949d0",
+ *                                   "ranking": 1
+ *                               }
+ *                           }
  *        "400":
  *          description: Bad request
  *          content:
