@@ -65,23 +65,23 @@ router.get("/:id", userController.getUserRecord);
  *              schema:
  *                  type : object
  *                  example:
- *                        {
- *                            "totalScore": 60,
- *                            "bossRaidHistory": [
- *                                {
- *                                    "raidRecordId": "3efc39bd-b597-43a4-9b81-7156a12c3186",
- *                                    "score": 20,
- *                                    "enterTime": "2022-09-20T07:37:23.727Z",
- *                                    "endTime": "2022-09-20T16:37:32+09:00"
- *                                },
- *                                {
- *                                    "raidRecordId": "465a3549-f83f-4fca-9cfd-a53987f9f169",
- *                                    "score": 20,
- *                                    "enterTime": "2022-09-20T07:34:41.913Z",
- *                                    "endTime": "2022-09-20T16:34:52+09:00"
- *                                }
- *                            ]
- *                        }
+ *                           {
+ *                               "totalScore": "94",
+ *                               "bossRaidHistory": [
+ *                                   {
+ *                                       "raidRecordId": "215c2fb9-aa18-4745-9427-d8d60afe5812",
+ *                                       "score": 47,
+ *                                       "enterTime": "2022-09-21T11:47:59.000Z",
+ *                                       "endTime": "2022-09-21T11:48:14.000Z"
+ *                                   },
+ *                                   {
+ *                                       "raidRecordId": "aa50264c-5a67-4120-a0c5-b01f517deb91",
+ *                                       "score": 47,
+ *                                       "enterTime": "2022-09-21T11:46:24.000Z",
+ *                                       "endTime": "2022-09-21T11:46:39.000Z"
+ *                                   }
+ *                               ]
+ *                           }
  *        "400":
  *          description: Bad request
  *          content:
