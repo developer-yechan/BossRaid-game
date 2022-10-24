@@ -15,6 +15,9 @@ const BossRaidEnd = async (req, res, next) => {
     if (!raidHistory) {
       return res.status(400).json({ error: "게임을 시작한 기록이 없어요" });
     }
+    if (raidHistory.score) {
+      return res.status(400).json({ error: "게임을 이미 끝냈습니다." });
+    }
     // 레이드 시작시간(raidLog 테이블에 insert 되는 시간)
     const timeInterval =
       raidHistory.createdAt < moment().subtract(3, "minutes");
